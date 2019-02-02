@@ -1,0 +1,99 @@
+{% extends "base-site.html" %}
+{% load static %}
+
+{% block title %}New Registration{% endblock %}
+
+{% block css %}
+<style>
+    .helptext{font-size: 12px;float: right;}
+    form p{margin-bottom: 25px}
+</style>
+{% endblock %}
+
+{% block breadcurmb %}
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-inner">
+                <ul class="list-inline list-unstyled">
+                    <li><a href="home.html">Home</a></li>
+                    <li class='active'>Login</li>
+                </ul>
+            </div>
+            <!-- /.breadcrumb-inner -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.breadcrumb -->
+{% endblock %}
+
+{% block content %}
+    <div class="body-content">
+        <div class="container">
+            <div class="sign-in-page">
+                <div class="row">
+                    <!-- create a new account -->
+                    <div class="col-md-offset-3 col-md-6 col-sm-6 create-new-account">
+                        <h4 class="checkout-subtitle">Create a new account</h4>
+                        <p class="text title-tag-line">Create your new account.</p>
+                        <form class="register-form outer-top-xs" action="" method="POST" role="form" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label class="info-title">Full Name <span>*</span></label>
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title">Email <span>*</span></label>
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title">Username<span>*</span> </label>
+                                {{ form.username }}
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title">Password <span>*</span></label>
+                                {{ form.password_1 }}
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title">Confirm Password <span>*</span></label>
+                                {{ form.password_2 }}
+                            </div>
+                            <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
+                        </form>
+                    </div>
+                    <!-- create a new account -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.sigin-in-->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.body-content -->
+    <section class="bottom-section">
+        <div class="container">
+            <!-- ============================================== NEWSLETTER ============================================== -->
+            <div class="newsletter wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <h3>Sign up to <strong>Newsletter</strong></h3>
+                        <div class="sidebar-widget-body">
+                            <p>Get <strong>40% Off</strong> on selected items!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Subscribe to our newsletter">
+                            <button class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.sidebar-widget-body -->
+        </div>
+        <!-- /.sidebar-widget -->
+        <!-- ============================================== NEWSLETTER: END ============================================== -->
+    </section>
+{% endblock %}
+
+{% block js %}{% endblock %}

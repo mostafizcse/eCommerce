@@ -1,0 +1,124 @@
+{% extends 'base-site.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="home.html">Home</a></li>
+				<li class='active'>Compare</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+{% endblock %}
+
+{% block content %}
+<div class="body-content outer-top-xs">
+	<div class="container">
+    <div class="product-comparison">
+		<div>
+			<h1 class="page-title text-center heading-title">Product Comparison</h1>
+			<div class="table-responsive">
+				<table class="table compare-table inner-top-vs">
+					<tr>
+						<th>Products</th>
+                        {% for p in comporisoonProduct %}
+						<td>
+							<div class="product">
+								<div class="product-image">
+									<div class="image">
+										<a href="{% url 'mainApp:product' id=p.id %}">
+										    <img alt="" src="{{ p.productId.image.url }}">
+										</a>
+									</div>
+
+									<div class="product-info text-left">
+										<h3 class="name"><a href="{% url 'mainApp:product' id=p.id %}">{{ p.productId.title }}</a></h3>
+
+										<div class="action">
+										    <a class="lnk btn btn-primary" href="#">Add To Cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</td>
+                        {% empty %}
+                            <h3 class="name">No Product In comporisoon List</h3>
+                        {% endfor %}
+
+					</tr>
+
+					<tr>
+						<th>Price</th>
+                        {% for p in comporisoonProduct %}
+						<td>
+							<div class="product-price">
+								<span class="price"> ${{ p.productId.new_price }} </span>
+								<span class="price-before-discount">${{ p.productId.old_price }}</span>
+							</div>
+						</td>
+                        {% endfor %}
+					</tr>
+
+					<tr>
+						<th>Description</th>
+                        {% for p in comporisoonProduct %}
+						<td><p class="text">{{ p.productId.description|truncatewords:13 }}<p></td>
+                        {% endfor %}
+                    </tr>
+
+					<tr>
+						 <th>Availability</th>
+                        {% for p in comporisoonProduct %}
+	                     <td><p class="in-stock">In Stock</p></td>
+                        {% endfor %}
+					</tr>
+
+					<tr >
+						<th>Remove</th>
+                        {% for p in comporisoonProduct %}
+						<td class='text-center'><a href="{% url 'comporisoonActivite:delete' id=p.id %}" class="remove-icon"><i class="fa fa-times"></i></a></td>
+                        {% endfor %}
+					</tr>
+				</table>
+			</div>
+            </div>
+		</div>
+	</div>
+</div>
+<section class="bottom-section">
+<div class="container">
+<!-- ============================================== NEWSLETTER ============================================== -->
+        <div class="newsletter wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <h3>Sign up to <strong>Newsletter</strong></h3>
+          <div class="sidebar-widget-body">
+            <p>Get <strong>40% Off</strong> on selected items!</p>
+            </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">  <button class="btn btn-primary">Subscribe</button>
+              </div>
+
+
+            </div>
+            </div>
+          </div>
+          <!-- /.sidebar-widget-body -->
+        </div>
+        <!-- /.sidebar-widget -->
+        <!-- ============================================== NEWSLETTER: END ============================================== -->
+
+</section>
+{% endblock %}
+
+{% block js %}{% endblock %}

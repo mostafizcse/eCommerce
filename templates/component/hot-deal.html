@@ -1,0 +1,51 @@
+<div class="sidebar-widget outer-bottom-small hot-deals wow fadeInUp">{% load static %}
+          <h3 class="section-title">hot deals</h3>
+          <div class="owl-carousel sidebar-carousel custom-carousel owl-theme ">
+            {% for post in hot_deal %}
+            <div class="item">
+              <div class="products">
+                <div class="hot-deal-wrapper">
+                  <div class="image"> <img src="{{ post.productId.image.url }}" alt=""> </div>
+                  <div class="sale-offer-tag"><span>{{ post.offer }}<br>
+                    off</span></div>
+                  <div class="timing-wrapper">
+                    <div class="box-wrapper">
+                      <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                    </div>
+                    <div class="box-wrapper hidden-md">
+                      <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.hot-deal-wrapper -->
+
+                <div class="product-info text-left m-t-20">
+                  <h3 class="name"><a href="{% url 'mainApp:product' id=post.productId.id %}">{{ post.productId.title }}</a></h3>
+                  <div class="rating rateit-small"></div>
+                  <div class="product-price"> <span class="price"> ${{ post.productId.new_price}} </span> <span class="price-before-discount">${{ post.productId.old_price }}</span> </div>
+                  <!-- /.product-price -->
+
+                </div>
+                <!-- /.product-info -->
+
+                <div class="cart clearfix animate-effect">
+                  <div class="action">
+                    <div class="add-cart-button btn-group">
+                      <button class="cart-btn-bg" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                  <!-- /.action -->
+                </div>
+                <!-- /.cart -->
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- /.sidebar-widget -->
+        </div>

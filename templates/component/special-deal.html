@@ -1,0 +1,108 @@
+<div class="sidebar-widget outer-bottom-small wow fadeInUp"> {% load static %}
+  <h3 class="section-title">Special Deals</h3>
+  <div class="sidebar-widget-body">
+    <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme">
+      <div class="item">
+        <div class="products special-product">
+          {% for special_deal in special_deal_1 %}
+          <div class="product">
+            <div class="product-micro">
+              <div class="row product-micro-row">
+                <div class="col col-xs-4">
+                  <div class="product-image">
+                    <div class="image"> <a href="#"> <img src="{{ special_deal.productId.image.url }}"  alt=""> </a> </div>
+                    <!-- /.image -->
+                  </div>
+                  <!-- /.product-image -->
+                </div>
+                <!-- /.col -->
+                <div class="col col-xs-8">
+                  <div class="product-info">
+                    <h3 class="name"><a href="{% url 'mainApp:product' id=special_deal.productId.id %}">{{ special_deal.productId.title }}</a></h3>
+                    <div class="rating rateit-small"></div>
+                    <div class="product-price"> <span class="price"> ${{ special_deal.productId.new_price }}</span> </div>
+                    <!-- /.product-price -->
+
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.product-micro-row -->
+            </div>
+            <!-- /.product-micro -->
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="item">
+        <div class="products special-product">
+          {% for special_deal in special_deal_2 %}
+          <div class="product">
+            <div class="product-micro">
+              <div class="row product-micro-row">
+                <div class="col col-xs-4">
+                  <div class="product-image">
+                    <div class="image"> <a href="#"> <img src="{{ special_deal.productId.image.url }}"  alt=""> </a> </div>
+                    <!-- /.image -->
+                  </div>
+                  <!-- /.product-image -->
+                </div>
+                <!-- /.col -->
+                <div class="col col-xs-8">
+                  <div class="product-info">
+                    <h3 class="name"><a href="{% url 'mainApp:product' id=special_deal.productId.id %}">{{ special_deal.productId.title }}</a></h3>
+                    <div class="rating rateit-small"></div>
+                    <div class="product-price"> <span class="price"> ${{ special_deal.productId.new_price }}</span> </div>
+                    <!-- /.product-price -->
+
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.product-micro-row -->
+            </div>
+            <!-- /.product-micro -->
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="item">
+        <div class="products special-product">
+          {% for special_deal in special_deal_3 %}
+          <div class="product">
+            <div class="product-micro">
+              <div class="row product-micro-row">
+                <div class="col col-xs-4">
+                  <div class="product-image">
+                    <div class="image"> <a href="#"> <img src="{{ special_deal.productId.image.url }}"  alt=""> </a> </div>
+                    <!-- /.image -->
+                  </div>
+                  <!-- /.product-image -->
+                </div>
+                <!-- /.col -->
+                <div class="col col-xs-8">
+                  <div class="product-info">
+                    <h3 class="name"><a href="{% url 'mainApp:product' id=special_deal.productId.id %}">{{ special_deal.productId.title }}</a></h3>
+                    <div class="rating rateit-small"></div>
+                    <div class="product-price"> <span class="price"> ${{ special_deal.productId.new_price }}</span> </div>
+                    <!-- /.product-price -->
+
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.product-micro-row -->
+            </div>
+            <!-- /.product-micro -->
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.sidebar-widget-body -->
+</div>
+<!-- /.sidebar-widget -->

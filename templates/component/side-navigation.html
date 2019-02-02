@@ -1,0 +1,37 @@
+<div class="side-menu animate-dropdown outer-bottom-xs">{% load static %}
+          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+          <nav class="yamm megamenu-horizontal">
+            <ul class="nav">
+              {% for c in cat %}
+              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-{{ c.icon}}" aria-hidden="true"></i>{{ c.name }}</a>
+                {% if c.subcategory %}
+                <ul class="dropdown-menu mega-menu">
+                  <li class="yamm-content">
+                    <div class="row">
+                      <!-- /.col -->
+                      <div class="col-sm-12 col-md-3">
+                        <ul class="links list-unstyled">
+                          {% for sub_c in c.subcategory.all %}
+                          <li><a href="#">{{ sub_c.sub_name|title }}</a></li>
+                          {% if forloop.counter|divisibleby:7 %}
+                          </ul></div><div class="col-sm-12 col-md-3"><ul>
+                            {% else %}
+                          {% endif%}
+                          {% endfor %}
+
+
+                    </div>
+                    <!-- /.row -->
+                  </li>
+                  <!-- /.yamm-content -->
+                </ul>
+                {% endif %}
+              </li><!-- /.dropdown-menu -->
+              <!-- /.menu-item -->
+              {% endfor %}
+
+            </ul>
+            <!-- /.nav -->
+          </nav>
+          <!-- /.megamenu-horizontal -->
+        </div>
